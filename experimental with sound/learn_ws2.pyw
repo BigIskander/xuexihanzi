@@ -19,6 +19,9 @@ import random
 
 #для озвучки
 import pyttsx3
+#номер голоса озвучки в списке доступных голосов
+#нужно выбрать китайский голос озвучки
+voice_id = 4
 
 #для компиляции с pyinstaller
 if getattr(sys, 'frozen', False):
@@ -49,7 +52,7 @@ def text_to_speach(text):
     voices = engine.getProperty('voices')
     #for voice in voices:
     #    print(f"Voice: {voice.name}")
-    engine.setProperty("voice", voices[4].id)
+    engine.setProperty("voice", voices[voice_id].id)
     engine.setProperty('rate',100)
     engine.say(text);
     engine.runAndWait() ;
