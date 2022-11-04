@@ -25,9 +25,13 @@ words=[]
 number_of_words=0
 wo=0
 file_load=False
-option=0
+option=-1
 correct_answer=0
 answer_text=""
+#временная подцветка кнопок
+wait=200
+correct_color="#00FF00"
+wrong_color="#FF0000"
 
 #Здесь и далее основные функции программы
 
@@ -66,6 +70,11 @@ def read_file(filename):
     #удалить первый ненужный символ из строки (похожий на пробел)
     if p_article[0:1]==u"\uFEFF":
         p_article=p_article[1:]
+    #проверка корректности файлами
+    if not check_me():
+        option=-2
+        main()
+        return None
     #выделение отдельных слов и расположение их в случайном порядке
     words=p_article.split('\n')
     random.shuffle(words)
@@ -100,6 +109,40 @@ def error(opf=False):
     #text=text+"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nТы долистал до конца. Поздравляю!"
     write_text(text)
 
+def incorrect_file():
+    block()
+    text="Файл со словами оформлен не верно."
+    text=text+"\n"
+    text=text+"\nПрожалуйста, проверьте корректность оформления текстового файла '" + os.path.basename(file) + "' в папке '" + os.path.dirname(os.path.abspath(file)) + "' ."
+    text=text+"\nИли выберите другой файл."
+    text=text+"\n"
+    text=text+"\nПравильное оформление файла со словами:"
+    text=text+"\n1) файл с расширением .txt в кодировке: utf-8"
+    text=text+"\n2) в файле не должно быть пустых строк"
+    text=text+"\n3) каждая строка в файле должна содержать два значения: слово на китайском 汉字 и перевод, разделенные знаком табуляции."
+    text=text+"\n(знак табуляции \t - это знак, который печатается когда на клавиатуре нажимаешь клавишу Tab)"
+    text=text+"\n"
+    text=text+"\nПример строки в файле:"
+    text=text+"\n汉字\tкитайские иероглифы (hànzì)"
+    write_text(text)
+
+def intital():
+    block()
+    label_1.config(text="Файл со словами: не выбран")
+    text="Добро пожаловать!"
+    text=text+"\nЭто программа для запоминания китайских слов."
+    text=text+"\nПожалуйста, откроте текстовый файл со словами, которые желаете запомнить."
+    text=text+"\n"
+    text=text+"\nПравильное оформление файла со словами:"
+    text=text+"\n1) файл с расширением .txt в кодировке: utf-8"
+    text=text+"\n2) в файле не должно быть пустых строк"
+    text=text+"\n3) каждая строка в файле должна содержать два значения: слово на китайском 汉字 и перевод, разделенные знаком табуляции."
+    text=text+"\n(знак табуляции \t - это знак, который печатается когда на клавиатуре нажимаешь клавишу Tab)"
+    text=text+"\n"
+    text=text+"\nПример строки в файле:"
+    text=text+"\n汉字\tкитайские иероглифы (hànzì)"
+    write_text(text)
+
 #отобразить выбор опций
 def options():
     #заблокировать кнопки
@@ -116,6 +159,24 @@ def options():
     button_2_1['state'] = 'normal'
     button_2_2['state'] = 'normal'
     button_2_3['state'] = 'normal'
+
+#функция экспресс проверки корректности файла со словами
+def check_me():
+    if len(p_article)<=0:
+        return False
+    words=p_article.split('\n')
+    num=len(words)
+    if num<=0:
+        return False
+    else:
+        for word in words:
+            sp_word=word.split('\t')
+            if not len(sp_word)==2:
+                return False;
+            else:
+                if (sp_word[0]=="" or sp_word[1]=="") or (sp_word[0]==None or sp_word[1]==None):
+                    return False
+    return True
 
 #слово перевод
 def chose4():
@@ -187,8 +248,8 @@ def watched():
 #функция запускаемая 1 раз сразу после загрузки окна
 def start():
     root.unbind('<Visibility>')
-    #прочитать файл
-    read_file(file)
+    #
+    main()
 
 #очистить текстовое поле и напечатать текст
 def write_text(write):
@@ -199,6 +260,7 @@ def write_text(write):
 
 #заблокировать кнопки и поля ввода
 def block():
+    entry.delete(0, tk.END)
     text['state'] = 'disabled'
     button_2_1['state'] = 'disabled'
     button_2_2['state'] = 'disabled'
@@ -212,7 +274,13 @@ def block():
 #кнопки клавиатуры
 #привязка кнопок клавиатуры 1 - 4 может не работать с китайской раскладкой
 def key_b():
-    if option==0:
+    if option==-1 or option==-2:
+        root.unbind('<Return>')
+        root.unbind('<Key-1>')
+        root.unbind('<Key-2>')
+        root.unbind('<Key-3>')
+        root.unbind('<Key-4>')
+    elif option==0:
         root.unbind('<Return>')
         root.unbind('<Key-4>')
         root.bind('<Key-1>', lambda event: button_2_1_press())
@@ -255,12 +323,16 @@ def button_4_press():
 def button_5_press():
     main(8)
 
+#color back to default
+def color_default(obj):
+    obj['bg']="SystemButtonFace"
+
 #главная функция программы
-def main(button_p):
+def main(button_p=None):
     global option
     global wo
     if button_p==1:
-        if option!=0 and option!=4 and option!=5:
+        if option not in [-2, -1, 0, 4, 5]:
             op_nfile = msgb.askyesno(message="Открыть новый файл? Текущий прогресс будет сброшен.")
         else:
             op_nfile = True
@@ -279,7 +351,13 @@ def main(button_p):
             key_b()
         return None
 
-    if option==0:
+    if option==-1:
+        key_b()
+        intital()
+    elif option==-2:
+        key_b()
+        incorrect_file()
+    elif option==0:
         if button_p in range(2, 5, 1):
             if button_p==2:
                 option=1
@@ -308,6 +386,15 @@ def main(button_p):
     elif option==1 or option==2:
         #проверить ответ
         if button_p - 2 == correct_answer:
+            #временное окрашивание кнопки
+            butt_num="!button"
+            if (button_p - 1)!=1:
+                butt_num=butt_num + str(button_p - 1)
+            root.children['!frame4'].children[butt_num]['bg']=correct_color
+            root.after(ms=wait, func=lambda: color_default(root.children['!frame4'].children[butt_num]))
+            #конец временное окрашивание кнопки
+
+            #действие на случай верного ответа
             wo=wo+1
             if wo < number_of_words:
                 chose4()
@@ -318,11 +405,26 @@ def main(button_p):
                 button_2_1['state'] = 'normal'
                 button_5['state'] = 'normal'
                 key_b()
+        elif button_p in range(2, 6, 1):
+            #временное окрашивание кнопки
+            butt_num="!button"
+            if (button_p - 1)!=1:
+                butt_num=butt_num + str(button_p - 1)
+            root.children['!frame4'].children[butt_num]['bg']=wrong_color
+            root.after(ms=wait, func=lambda: color_default(root.children['!frame4'].children[butt_num]))
+            #конец временное окрашивание кнопки
     elif option==3:
         if button_p==6:
             answ=entry.get()
             entry.delete(0, tk.END)
             if answer_text==answ:
+                #временное окрашивание кнопки
+                butt_num="!button"
+                root.children['!frame5'].children[butt_num]['bg']=correct_color
+                root.after(ms=wait, func=lambda: color_default(root.children['!frame5'].children[butt_num]))
+                #конец временное окрашивание кнопки
+
+                #действие на случай верного ответа
                 wo=wo+1
                 if wo < number_of_words:
                     free()
@@ -333,6 +435,12 @@ def main(button_p):
                     button_2_1['state'] = 'normal'
                     button_5['state'] = 'normal'
                     key_b()
+            else:
+                #временное окрашивание кнопки
+                butt_num="!button"
+                root.children['!frame5'].children[butt_num]['bg']=wrong_color
+                root.after(ms=wait, func=lambda: color_default(root.children['!frame5'].children[butt_num]))
+                #конец временное окрашивание кнопки
         elif button_p==7:
             msgb.showinfo(message=answer_text)
             entry.focus_set()

@@ -1,0 +1,1 @@
+py -3.10-32 -m PyInstaller --onefile --windowed learn.pyw
