@@ -11,6 +11,7 @@ import tkinter as tk
 import tkinter.messagebox as msgb
 import tkinter.filedialog as fd
 import random
+import webbrowser
 
 #для компиляции с pyinstaller
 if getattr(sys, 'frozen', False):
@@ -34,6 +35,13 @@ correct_color="#00FF00"
 wrong_color="#FF0000"
 
 #Здесь и далее основные функции программы
+
+#на сайт программы
+site_link="https://iskandersultanov.wordpress.com/xuexihanzi2/"
+def about():
+    op_site = msgb.askyesno(message="Перейти на сайт программы?")
+    if op_site:
+        webbrowser.open_new(site_link)
 
 #функция для отладки
 def test():
@@ -517,9 +525,10 @@ label_2 = tk.Label(frame_6, text="О программе:", font=("Helvetica", 12
 frame_6.pack(fill='x',expand=True)
 label_2.pack(fill='x',side='left')
 frame_7 = tk.Frame(root, padx=5)
-label_3 = tk.Label(frame_7, text="https://iskandersultanov.wordpress.com/xuexihanzi2/", font=("Helvetica", 12))
+label_3 = tk.Label(frame_7, text=site_link, font=("Helvetica", 12))
 frame_7.pack(fill='x',expand=True)
 label_3.pack(fill='x',side='left')
+label_3.bind("<Button-1>", lambda event: about())
 
 #отобразить окно
 root.mainloop()
