@@ -6,7 +6,7 @@
 <p>Ссылки на скачивание:
 <ol>
 <li>Скомпилированная версия программы: <a href="https://github.com/BigIskander/xuexihanzi/raw/main/learn.exe" download>learn.exe</a></li>
-<li>Не скомпилированная версия программы: </li>
+<li>Не скомпилированная версия программы: <a href="https://github.com/BigIskander/xuexihanzi/raw/main/learn.pyw" download>learn.pyw</a></li>
 </ol>
 </p>
 <p>
