@@ -4,7 +4,10 @@
 <br />Подробнее о программе написал здесь: <a href="https://iskandersultanov.wordpress.com/xuexihanzi2/" target="_blank">https://iskandersultanov.wordpress.com/xuexihanzi2/</a></p>
 
 <p>Ссылки на скачивание:
-<br />Скомпилированная версия программы: <a href="https://github.com/BigIskander/xuexihanzi/raw/main/learn.exe" download>learn.exe</a>
+<ol>
+<li>Скомпилированная версия программы: <a href="https://github.com/BigIskander/xuexihanzi/raw/main/learn.exe" download>learn.exe</a></li>
+<li>Не скомпилированная версия программы: </li>
+</ol>
 </p>
 <p>
 <br />В программе предусмотрены 3 упражнения:</p>
