@@ -1,8 +1,12 @@
 <h2>Добро пожаловать!</h2>
 <p>Это небольшая программа, помогающая лучше запоминать (учить) китайские слова. 
-<br />Подробнее о программе написал здесь: <a href="https://iskandersultanov.wordpress.com/xuexihanzi2/" target="_blank">https://iskandersultanov.wordpress.com/xuexihanzi2/</a>
-<br />Скомпилированная версия программы: <a href="https://github.com/BigIskander/xuexihanzi/raw/main/learn.exe" download>learn.exe</a>
 <br />Программа, в первую очередь, будет полезна людям изучающим китайский язык.
+<br />Подробнее о программе написал здесь: <a href="https://iskandersultanov.wordpress.com/xuexihanzi2/" target="_blank">https://iskandersultanov.wordpress.com/xuexihanzi2/</a></p>
+
+<p>Ссылки на скачивание:
+<br />Скомпилированная версия программы: <a href="https://github.com/BigIskander/xuexihanzi/raw/main/learn.exe" download>learn.exe</a>
+</p>
+<p>
 <br />В программе предусмотрены 3 упражнения:</p>
 <ol>
 <li>Два вида тестов на перевод: с русского на китайский и с китайского на русский. В каждом тесте вам из 4 вариантов нужно выбрать 1 верный вариант перевода.</li>
