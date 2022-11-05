@@ -17,7 +17,7 @@
 <p>This program's user interface is in Russian language</p>
 <p>This is the simple program which can help to easier remember chinese words. 
 <br />This program may be helpful for chinese language learners.
-<br />I wrote more thoroughtly about this program, here: <a href="https://iskandersultanov.wordpress.com/xuexihanzi2/" target="_blank">https://iskandersultanov.wordpress.com/xuexihanzi2/</a> (in Russian)</p>
+<br />I wrote thoroughtly about this program, here: <a href="https://iskandersultanov.wordpress.com/xuexihanzi2/" target="_blank">https://iskandersultanov.wordpress.com/xuexihanzi2/</a> (in Russian)</p>
 
 <p>Files in the repository:
 <ol>
