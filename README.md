@@ -3,10 +3,10 @@
 <br />Программа, в первую очередь, будет полезна людям изучающим китайский язык.
 <br />Подробнее о программе написал здесь: <a href="https://iskandersultanov.wordpress.com/xuexihanzi2/" target="_blank">https://iskandersultanov.wordpress.com/xuexihanzi2/</a></p>
 
-<p>Ссылки на скачивание:
+<p>Файлы в репозитории:
 <ol>
-<li>Скомпилированная версия программы: <a href="https://github.com/BigIskander/xuexihanzi/raw/main/learn.exe" target="_blank" download>learn.exe</a></li>
-<li>Не скомпилированная версия программы: <a href="https://github.com/BigIskander/xuexihanzi/blob/1a55aead877f078b9b8a795314061f149537c2de/learn.pyw" target="_blank" download>learn.pyw</a></li>
+<li>Скомпилированная версия программы: <b><i>learn.exe</i></b></li>
+<li>Не скомпилированная версия программы: <b><i>learn.pyw</i></b></li>
 </ol>
 </p>
 <p>
