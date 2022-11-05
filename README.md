@@ -10,6 +10,7 @@
 <li>Пример файла со словами для изучения: <b><i>words.txt</i></b></li>
 </ol>
 </p>
+<p>Программа написана на языке Python 3, с использованием програмной библиотеки Tkinter для реализации графического интерфейса. Программа скомпилирована при помощи PyInstaller.</p>
 <p>Программа предоставляется как есть, без каких либо гарантий!</p>
 <hr/>
 <h2>Wellcome!</h2>
@@ -25,4 +26,5 @@
 <li>Exhample of the file with words for learning: <b><i>words.txt</i></b></li>
 </ol>
 </p>
+<p>This program is written in Python 3 programming language, with usage of Tkinter librari for GUI. Program is compiled by using PyInstaller.</p>
 <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND</p>
