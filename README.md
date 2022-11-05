@@ -6,7 +6,7 @@
 <p>Файлы в репозитории:
 <ol>
 <li>Скомпилированная версия программы: <b><i>learn.exe</i></b></li>
-<li>Не скомпилированная версия программы: <b><i>learn.pyw</i></b></li>
+<li>Не скомпилированная версия программы (исходный код): <b><i>learn.pyw</i></b></li>
 <li>Пример файла со словами для изучения: <b><i>words.txt</i></b></li>
 </ol>
 </p>
@@ -21,7 +21,7 @@
 <p>Files in the repository:
 <ol>
 <li>Compiled version of program: <b><i>learn.exe</i></b></li>
-<li>Uncompiled version of program: <b><i>learn.pyw</i></b></li>
+<li>Uncompiled version of program (source code): <b><i>learn.pyw</i></b></li>
 <li>Exhample of the file with words for learning: <b><i>words.txt</i></b></li>
 </ol>
 </p>
