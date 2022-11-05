@@ -1,7 +1,7 @@
 <h2>Добро пожаловать!</h2>
 <p>Это небольшая программа, помогающая лучше запоминать (учить) китайские слова. 
 <br />Подробнее о программе написал здесь: <a href="https://iskandersultanov.wordpress.com/xuexihanzi2/" target="_blank">https://iskandersultanov.wordpress.com/xuexihanzi2/</a>
-<a href="https://github.com/BigIskander/xuexihanzi/blob/main/learn.exe" download>learn.exe</a>
+<br />Скомпилированная версия программы: <a href="https://github.com/BigIskander/xuexihanzi/blob/main/learn.exe" download>learn.exe</a>
 <br />Программа, в первую очередь, будет полезна людям изучающим китайский язык.
 <br />В программе предусмотрены 3 упражнения:</p>
 <ol>
