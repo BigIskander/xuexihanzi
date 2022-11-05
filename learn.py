@@ -1,6 +1,6 @@
 #автор программы: Султанов Искандер (BigIskander@gmail.com)
 #подробнее о программе:
-# https://iskandersultanov.wordpress.com/2022/08/30/xuexihanzi/
+# https://iskandersultanov.wordpress.com/xuexihanzi/
 from os import system, name
 import random
 
