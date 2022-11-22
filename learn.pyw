@@ -336,7 +336,8 @@ def button_5_press():
 
 #color back to default
 def color_default(obj):
-    obj['bg']="SystemButtonFace"
+    if os.name=="nt":
+        obj['bg']="SystemButtonFace"
 
 #главная функция программы
 def main(button_p=None):
@@ -398,11 +399,12 @@ def main(button_p=None):
         #проверить ответ
         if button_p - 2 == correct_answer:
             #временное окрашивание кнопки
-            butt_num="!button"
-            if (button_p - 1)!=1:
-                butt_num=butt_num + str(button_p - 1)
-            root.children['!frame4'].children[butt_num]['bg']=correct_color
-            root.after(ms=wait, func=lambda: color_default(root.children['!frame4'].children[butt_num]))
+            if os.name == "nt":
+                butt_num="!button"
+                if (button_p - 1)!=1:
+                    butt_num=butt_num + str(button_p - 1)
+                root.children['!frame4'].children[butt_num]['bg']=correct_color
+                root.after(ms=wait, func=lambda: color_default(root.children['!frame4'].children[butt_num]))
             #конец временное окрашивание кнопки
 
             #действие на случай верного ответа
@@ -418,11 +420,12 @@ def main(button_p=None):
                 key_b()
         elif button_p in range(2, 6, 1):
             #временное окрашивание кнопки
-            butt_num="!button"
-            if (button_p - 1)!=1:
-                butt_num=butt_num + str(button_p - 1)
-            root.children['!frame4'].children[butt_num]['bg']=wrong_color
-            root.after(ms=wait, func=lambda: color_default(root.children['!frame4'].children[butt_num]))
+            if os.name == "nt":
+                butt_num="!button"
+                if (button_p - 1)!=1:
+                    butt_num=butt_num + str(button_p - 1)
+                root.children['!frame4'].children[butt_num]['bg']=wrong_color
+                root.after(ms=wait, func=lambda: color_default(root.children['!frame4'].children[butt_num]))
             #конец временное окрашивание кнопки
     elif option==3:
         if button_p==6:
@@ -430,9 +433,10 @@ def main(button_p=None):
             entry.delete(0, tk.END)
             if answer_text==answ:
                 #временное окрашивание кнопки
-                butt_num="!button"
-                root.children['!frame5'].children[butt_num]['bg']=correct_color
-                root.after(ms=wait, func=lambda: color_default(root.children['!frame5'].children[butt_num]))
+                if os.name == "nt":
+                    butt_num="!button"
+                    root.children['!frame5'].children[butt_num]['bg']=correct_color
+                    root.after(ms=wait, func=lambda: color_default(root.children['!frame5'].children[butt_num]))
                 #конец временное окрашивание кнопки
 
                 #действие на случай верного ответа
@@ -448,13 +452,15 @@ def main(button_p=None):
                     key_b()
             else:
                 #временное окрашивание кнопки
-                butt_num="!button"
-                root.children['!frame5'].children[butt_num]['bg']=wrong_color
-                root.after(ms=wait, func=lambda: color_default(root.children['!frame5'].children[butt_num]))
+                if os.name == "nt":
+                    butt_num="!button"
+                    root.children['!frame5'].children[butt_num]['bg']=wrong_color
+                    root.after(ms=wait, func=lambda: color_default(root.children['!frame5'].children[butt_num]))
                 #конец временное окрашивание кнопки
         elif button_p==7:
             msgb.showinfo(message=answer_text)
             entry.focus_set()
+
     elif option==4:
         if button_p==2:
             option=0
