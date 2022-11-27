@@ -101,17 +101,17 @@ def error(opf=False):
     if opf:
         text="Не удалось открыть файл: '" + os.path.basename(file) + "'"
         text=text+"\nПроверьте наличие текстового файла '" + os.path.basename(file) + "' в папке '" + os.path.dirname(os.path.abspath(file)) + "' !"
-        text=text+"\n---------------------------------------------------------------------------------------------------\n"
+        text=text+"\n-------------------------------------"
     else:
         text=""
     text=text+"В работе программы произошла ошибка!"
     text=text+"\nПроверьте корректность текстового файла '" + os.path.basename(file) + "' в папке '" + os.path.dirname(os.path.abspath(file)) + "' ."
-    text=text+"\n---------------------------------------------------------------------------------------------------"
+    text=text=text+"\n-------------------------------------"
     text=text+"\nПравильное оформление файла:"
     text=text+"\n1) кодировка файла: utf-8"
     text=text+"\n2) в файле не должно быть пустых строк"
     text=text+"\n3) каждая строка в файле должна содержать два значения: слово на китайском 汉字 и перевод, разделенные знаком табуляции."
-    text=text+"\n---------------------------------------------------------------------------------------------------"
+    text=text=text+"\n-------------------------------------"
     text=text+"\nПример строки в файле:"
     text=text+"\n汉字\tкитайские иероглифы (hànzì)"
     #text=text+"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nТы долистал до конца. Поздравляю!"
@@ -216,9 +216,9 @@ def chose4():
         answered=False
         text="Просмотрено слов: " + str(wo+1) + " из " + str(number_of_words)
         text=text+"\nВыберите правильный вариант перевода:"
-        text=text+"\n----------------------------------------------------------------------------------------"
+        text=text+"\n-------------------------------------"
         text=text+"\n"+word_answer[w_1]
-        text=text+"\n----------------------------------------------------------------------------------------"
+        text=text+"\n-------------------------------------"
         text=text+"\nВарианты перевода:"
         num_of_answer=0;
         for line in select_words:
@@ -241,7 +241,7 @@ def free():
         text=text+"\nНапечатайте иероглифами 汉字 перевод:"
         word=words[wo].split('\t')
         answer_text=word[0]
-        text=text+"\n----------------------------------------------------------------------------------------"
+        text=text+"\n-------------------------------------"
         text=text+"\n"+word[1]
         write_text(text)
     except:
@@ -252,7 +252,7 @@ def free():
 #все слова просмотрены
 def watched():
     text="Все слова просмотрены:"
-    text=text+"\n----------------------------------------------------------------------------------------"
+    text=text+"\n-------------------------------------"
     text=text+"\n1: Вернуться в главное меню"
     write_text(text)
 
@@ -473,6 +473,10 @@ def main(button_p=None):
 
 #Отсюда и ниже код отвечающий за графический интерфейс программы
 
+def font_change(*args):
+    text['font']=("Helvetica", font_size.get())
+
+
 #создать окно и задать свойства
 root = tk.Tk()
 #root.protocol("WM_DELETE_WINDOW", exit)
@@ -491,19 +495,31 @@ label_1.pack(side='left')
 #кнопка открыть другой файл со словами и кнопка главное меню
 frame_2 = tk.Frame(root, padx=5)
 button_1 = tk.Button(frame_2, text="Открыть другой файл", font=("Helvetica", 12), command=button_1_press)
+#выбор шрифта
+font_size_options=(12, 14, 16, 18 , 20)
+font_size=tk.StringVar(frame_2)
+font_size.set(14)
+font_size.trace("w", font_change)
+#
+select_font_menu=tk.OptionMenu(frame_2, font_size, *font_size_options)
+select_font_label=tk.Label(frame_2, text="Размер шрифта:", font=("Helvetica", 12))
 button_5 = tk.Button(frame_2, text="Главное меню", font=("Helvetica", 12), command=button_5_press)
 frame_2.pack(side='top', fill='x', expand=True)
 button_1.pack(side='left')
+
 button_5.pack(side='right')
+select_font_menu.pack(side='right')
+select_font_label.pack(side='right')
 
 #создать большое текстовое поле и задать свойства
-frame_3 = tk.Frame(root, pady=5, padx=5)
-text = tk.Text(frame_3, height=15, font=("Helvetica", 14))
+frame_3 = tk.Frame(root, pady=5, padx=5, height=350)
+frame_3.pack_propagate(False)
+text = tk.Text(frame_3, font=("Helvetica", 14))
 scroll = tk.Scrollbar(frame_3)
 text.config(yscrollcommand=scroll.set)
 scroll.config(command=text.yview)
 frame_3.pack(fill='x')
-scroll.pack(side='right', fill='both')
+scroll.pack(side='right', fill='y')
 text.pack(side='left', fill='x')
 
 #ряд кнопок 1 - 4
