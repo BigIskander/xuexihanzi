@@ -475,6 +475,7 @@ def main(button_p=None):
 
 def font_change(*args):
     text['font']=("Helvetica", font_size.get())
+    entry['font']=("Helvetica", font_size.get())
 
 
 #создать окно и задать свойства
@@ -512,7 +513,7 @@ select_font_menu.pack(side='right')
 select_font_label.pack(side='right')
 
 #создать большое текстовое поле и задать свойства
-frame_3 = tk.Frame(root, pady=5, padx=5, height=350)
+frame_3 = tk.Frame(root, pady=5, padx=5, height=345)
 frame_3.pack_propagate(False)
 text = tk.Text(frame_3, font=("Helvetica", 14))
 scroll = tk.Scrollbar(frame_3)
