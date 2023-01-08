@@ -1,7 +1,7 @@
 <h2>Добро пожаловать!</h2>
 <p>Это небольшая программа, помогающая лучше запоминать (учить) китайские слова. 
 <br />Программа, в первую очередь, будет полезна людям изучающим китайский язык.
-<br />Подробнее о программе написал здесь: <a href="https://iskandersultanov.wordpress.com/xuexihanzi2/" target="_blank">https://iskandersultanov.wordpress.com/xuexihanzi2/</a></p>
+<br />Подробнее о программе написал здесь: <a href="https://bigiskander.github.io/2022/11/05/xuexihanzi2.html" target="_blank">https://bigiskander.github.io/2022/11/05/xuexihanzi2.html</a></p>
 
 <p>Файлы в репозитории:
 <ol>
@@ -18,7 +18,7 @@
 <p>This program's user interface is in Russian language</p>
 <p>This is the simple program which can help to easier remember chinese words. 
 <br />This program may be helpful for chinese language learners.
-<br />I wrote thoroughtly about this program, here: <a href="https://iskandersultanov.wordpress.com/xuexihanzi2/" target="_blank">https://iskandersultanov.wordpress.com/xuexihanzi2/</a> (in Russian)</p>
+<br />I wrote thoroughtly about this program, here: <a href="https://bigiskander.github.io/2022/11/05/xuexihanzi2.html" target="_blank">https://bigiskander.github.io/2022/11/05/xuexihanzi2.html</a> (in Russian)</p>
 
 <p>Files in the repository:
 <ol>
