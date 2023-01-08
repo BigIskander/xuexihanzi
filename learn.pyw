@@ -2,7 +2,7 @@
 """
 автор программы: Султанов Искандер (BigIskander@gmail.com)
 подробнее о программе:
-https://iskandersultanov.wordpress.com/xuexihanzi2/
+https://bigiskander.github.io/2022/11/05/xuexihanzi2.html
 """
 #импортируем нужные библиотеки
 import os
@@ -37,7 +37,7 @@ wrong_color="#FF0000"
 #Здесь и далее основные функции программы
 
 #на сайт программы
-site_link="https://iskandersultanov.wordpress.com/xuexihanzi2/"
+site_link="https://bigiskander.github.io/2022/11/05/xuexihanzi2.html"
 def about():
     op_site = msgb.askyesno(message="Перейти на сайт программы?")
     if op_site:
