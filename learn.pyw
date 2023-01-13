@@ -458,8 +458,24 @@ def main(button_p=None):
                     root.after(ms=wait, func=lambda: color_default(root.children['!frame5'].children[butt_num]))
                 #конец временное окрашивание кнопки
         elif button_p==7:
-            msgb.showinfo(message=answer_text)
-            entry.focus_set()
+            #answear window
+            answerWindow = tk.Toplevel(root)
+            answerWindowLabel = tk.Label(answerWindow, text=answer_text, font=("Helvetica", font_size.get()))
+            answerWindowLabel.pack()
+            #set position
+            x = root.winfo_x()
+            y = root.winfo_y()
+            w =  answerWindow.winfo_width()
+            if w < 250:
+                w = 250
+            h = answerWindow.winfo_height()
+            if h < 50:
+                h = 50
+            answerWindow.geometry("%dx%d+%d+%d" % (w, h, x + 350 - w/2, y + 225 - h/2))
+            answerWindow.grab_set()
+            answerWindow.focus_set()
+            #msgb.showinfo(message=answer_text)
+            #entry.focus_set()
 
     elif option==4:
         if button_p==2:
